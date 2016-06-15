@@ -19,7 +19,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5.x'
+# gem 'turbolinks', '~> 5.x'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # Use Redis adapter to run Action Cable in production
@@ -30,9 +31,37 @@ gem 'jbuilder', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Authentication and authorization
+gem 'devise'
+gem 'devise_invitable'
+gem 'rolify'
+
+# Bourbon for sass mixins, and neat for the grid framework
+gem 'bourbon'
+gem 'neat'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'faker'
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'byebug'
+  # gem 'sunspot_solr'
+  gem 'awesome_print', require: 'ap'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'bullet'
+end
+
+group :test do
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'capybara-webkit'
+  gem 'mocha'
+  gem 'database_cleaner'
+  gem 'codeclimate-test-reporter'
+  gem 'simplecov', require: false
+  # gem 'webmock'
 end
 
 group :development do
@@ -42,6 +71,14 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'rubocop', require: false
+  gem 'brakeman', require: false
+  gem 'quiet_assets'
+  gem 'letter_opener'
+  gem 'annotate'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
