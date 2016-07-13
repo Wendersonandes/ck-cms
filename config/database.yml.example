@@ -3,8 +3,8 @@ default: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
-  username: coreydavis1
-  password: 1234
+  username:
+  password:
   host: localhost
 
 development:
@@ -14,9 +14,3 @@ development:
 test:
   <<: *default
   database: ck_cms_test
-
-production:
-  <<: *default
-  database: ck_cms_prod
-  username: <%= ENV["PROD_DB_USERNAME"] %>
-  password: <%= ENV["PROD_DB_PASSWORD"] %>

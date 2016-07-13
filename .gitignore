@@ -23,6 +23,7 @@ capybara-*.html
 /log
 /tmp
 /public/assets
+/public/media
 /spec/tmp
 /spec/examples.txt
 **.orig
@@ -47,3 +48,6 @@ config/secrets.yml
 
 # Sublime files
 *.sublime-*
+
+# Mac .DS_Store file
+.DS_Store
