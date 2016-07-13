@@ -35,12 +35,15 @@ desc 'Import Worpress XML Data'
             user = CamaleonCms::User.find_by_first_name("Ck")
           end
 
+          status = item.at_xpath('wp:status').text
+          status = "published" if status == "publish" # A difference between WP and Camaleon statuses.
+
           post = post_type.posts.create(
               title: item.at_xpath('title').text.strip,
               slug: item.at_xpath('wp:post_name').text,
               content: item.at_xpath('content:encoded').text,
               content_filtered: item.at_xpath('content:encoded').text.strip_tags,
-              status: item.at_xpath('wp:status').text,
+              status: status,
               published_at: item.at_xpath('pubDate').text.to_datetime,
               post_parent: nil,
               visibility: "public",
@@ -52,8 +55,6 @@ desc 'Import Worpress XML Data'
               post_order: item.at_xpath('wp:menu_order').text.to_i,
               taxonomy_id: 2,
               is_feature: false)
-
-
 
               unless item.at_xpath('category').text.blank?
                 post_type.categories.create({ name: item.at_xpath('category').text })
