@@ -26,6 +26,10 @@ From then on, to wipe out and start over
 * `rake db:reset`
 * Same steps as above from `rails s`
 
+## Site themes
+* Create a new site theme template with: `rails g camaleon_cms:theme theme_name`
+* Delete a site theme with `rails d camaleon_cms:theme theme_name` * Make sure server is stopped first.
+
 ## Testing
 
 Rspec is used on this project, which can be run with: `rspec`
